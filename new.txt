@@ -1,0 +1,31 @@
+1. int partition(int arr[], int left, int right)
+2. {
+3.       int i = left, j = right;
+4.       int tmp;
+5.       int pivot = arr[(left + right) / 2];
+6.      
+7.       while (i <= j) {
+8.             while (arr[i] < pivot)
+9.                   i++;
+10.             while (arr[j] > pivot)
+11.                   j--;
+12.             if (i <= j) {
+13.                   tmp = arr[i];
+14.                   arr[i] = arr[j];
+15.                   arr[j] = tmp;
+16.                   i++;
+17.                   j--;
+18.             }
+19.       };
+20.      
+21.       return i;
+22. }
+23.  
+24. void quickSort(int arr[], int left, int right) {
+25.       int index = partition(arr, left, right);
+26.       if (left < index - 1)
+27.             quickSort(arr, left, index - 1);
+28.       if (index < right)
+29.             quickSort(arr, index, right);
+30. }
+
